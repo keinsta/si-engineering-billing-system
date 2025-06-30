@@ -1,0 +1,27 @@
+@media print {
+  body {
+    background: white !important;
+    margin: 0;
+    padding: 0;
+  }
+  .invoice {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0;
+    box-sizing: border-box;
+    page-break-after: always;
+  }
+  /* hide everything except invoice */
+  body * {
+    visibility: hidden;
+  }
+  .invoice,
+  .invoice * {
+    visibility: visible;
+  }
+  .invoice {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
