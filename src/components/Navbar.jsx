@@ -67,6 +67,7 @@ export default function Navbar() {
               className="w-full text-left bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
               onClick={() => {
                 navigate("/");
+                setIsOpen(!isOpen);
               }}
             >
               Generate Bill
@@ -75,6 +76,7 @@ export default function Navbar() {
               className="w-full text-left bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
               onClick={() => {
                 navigate("/find-customer-bill");
+                setIsOpen(!isOpen);
               }}
             >
               Find Bill
