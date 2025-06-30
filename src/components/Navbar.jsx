@@ -65,13 +65,17 @@ export default function Navbar() {
           <div className="md:hidden mt-2 space-y-2">
             <button
               className="w-full text-left bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
-              onClick={() => alert("Generating bill...")}
+              onClick={() => {
+                navigate("/");
+              }}
             >
               Generate Bill
             </button>
             <button
               className="w-full text-left bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition"
-              onClick={() => alert("Finding bill...")}
+              onClick={() => {
+                navigate("/find-customer-bill");
+              }}
             >
               Find Bill
             </button>
