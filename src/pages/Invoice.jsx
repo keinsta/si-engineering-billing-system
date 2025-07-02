@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
+import watermark from "../assets/watermark-logo.png";
 export default function Invoice() {
   const location = useLocation();
   const bill = location.state?.bill;
@@ -8,7 +9,20 @@ export default function Invoice() {
 
   return (
     <div className="p-4 print:p-0 print:m-0 bg-gray-100 min-h-screen mt-20">
-      <div className="invoice bg-white mx-auto my-8 shadow print:shadow-none border border-gray-300 max-w-4xl p-8 print:p-4 print:border-none print:max-w-full print:mx-0 print:my-0">
+      <div className="relative invoice bg-white mx-auto my-8 shadow print:shadow-none border border-gray-300 max-w-4xl p-8 print:p-4 print:border-none print:max-w-full print:mx-0 print:my-0">
+        <div
+          className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-10 print:opacity-10"
+          style={{
+            zIndex: 0,
+          }}
+        >
+          <img
+            src={watermark}
+            alt="Watermark"
+            className="max-w-lg md:max-w-2xl"
+            style={{ filter: "brightness(0) invert(0.1)" }}
+          />
+        </div>
         {/* Header */}
         <div className="flex justify-between border-b pb-4 mb-4 print:border-none print:pb-2 print:mb-2 no-break">
           <div>
@@ -148,6 +162,11 @@ export default function Invoice() {
 
         <div className="text-xs text-gray-400 mt-8 no-break print:mt-4">
           Thank you for doing business with us.
+        </div>
+
+        <div className="hidden print:block text-center text-xs text-gray-500 border-t border-gray-300 pt-2 mt-4">
+          Developed by Keinsta Solutions | Email: talhaz.hameed@gmail.com |
+          Phone: +971 567510778
         </div>
       </div>
 

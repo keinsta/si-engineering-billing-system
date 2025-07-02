@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import logo from "../assets/logo.png";
+import watermark from "../assets/watermark-logo.png";
 
 export default function FindBill() {
   const [serialNumber, setSerialNumber] = useState("");
@@ -72,6 +73,19 @@ export default function FindBill() {
       {/* Render invoice if found */}
       {bill && (
         <div className="invoice bg-white mx-auto my-8 shadow border border-gray-300 max-w-4xl p-8 print:p-4 print:border-none print:max-w-full print:mx-0 print:my-0">
+          <div
+            className="absolute inset-0 flex justify-center items-center pointer-events-none opacity-10 print:opacity-10"
+            style={{
+              zIndex: 0,
+            }}
+          >
+            <img
+              src={watermark}
+              alt="Watermark"
+              className="max-w-lg md:max-w-2xl"
+              style={{ filter: "brightness(0) invert(0.1)" }}
+            />
+          </div>
           {/* Header */}
           <div className="flex justify-between border-b pb-4 mb-4 print:border-none print:pb-2 print:mb-2 no-break">
             <div>
@@ -219,6 +233,10 @@ export default function FindBill() {
 
           <div className="text-xs text-gray-400 mt-8 no-break print:mt-4">
             Thank you for doing business with us.
+          </div>
+          <div className="hidden print:block text-center text-xs text-gray-500 border-t border-gray-300 pt-2 mt-4">
+            Developed by Keinsta Solutions | Email: talhaz.hameed@gmail.com |
+            Phone: +971 567510778
           </div>
 
           {/* Print Button */}
